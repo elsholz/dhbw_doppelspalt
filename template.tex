@@ -1,0 +1,88 @@
+\documentclass[a4paper, german, 10pt]{extarticle}
+
+%% Use utf-8 encoding for foreign characters
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+
+%% Doppelspalt-Layout
+\usepackage{multicol}
+\setlength\columnsep{30pt}
+\usepackage[margin=1.9cm, bottom=3.7cm]{geometry}
+
+%% Dummy text
+\usepackage{blindtext}
+
+%% Enable enhanced citation styles
+\usepackage{natbib}
+
+%% ToDos
+\usepackage{todonotes}
+
+%% Vector based fonts instead of bitmaps
+\usepackage{lmodern}
+
+%% Useful
+%% \usepackage{fullpage} % Smaller margins
+\usepackage{enumerate}
+\usepackage{hyperref}
+
+%% Theorem
+\usepackage{amsthm}
+
+%% More math
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%% Font settings
+% \usepackage{fontspec}
+% \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+% \setmainfont{Oxygen-Sans}
+% \setmonofont{Oxygen Mono}
+
+%% Use glossary
+\usepackage{glossaries}
+\makenoidxglossaries
+\newacronym{dhbw}{DHBW}{Duale Hochschule Baden-Württemberg}
+
+\begin{document}
+
+%% Redefine Section
+\let\stdsection\section
+%\renewcommand\section[]{\centering{\stdsection* te}}
+\renewcommand{\section}[1]{\begin{center}\stdsection*{#1}\end{center}}
+
+%% Redefine Subsection
+\let\stdsubsection\subsection
+\renewcommand\subsection{\stdsubsection*}
+
+\begin{center}
+	\textbf{\Large{Titel}}\\
+	\vspace{0.5cm}
+	\textbf{\large{Autor}}\\
+	\vspace{0.2cm}
+	\large{Matrikelnummer, Firma}\\
+	\vspace{0.2cm}
+	\large{E-mail-Adresse}\\
+	\vspace{0.8cm}
+\end{center}
+
+\begin{multicols}{2}
+
+\small
+\input{abstract.tex}
+\normalsize
+
+\input{content.tex}
+
+\end{multicols}
+%\tableofcontents
+%\printnoidxglossaries
+
+%\newpage
+%\listoffigures
+
+%\bibliographystyle{plain}
+%\bibliography{ref}
+
+\end{document}
