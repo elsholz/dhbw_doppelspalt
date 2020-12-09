@@ -1,3 +1,4 @@
 #!/bin/bash
-bibtex hausarbeit
-xelatex hausarbeit.tex
+FILE_NAME="template"
+bibtex $FILE_NAME
+xelatex $FILE_NAME.tex
