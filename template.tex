@@ -5,6 +5,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
 
+%% Images
+\usepackage{caption}
+\usepackage[export]{adjustbox}
+
+
 %% Doppelspalt-Layout
 \usepackage{multicol}
 \setlength\columnsep{30pt}
@@ -39,22 +44,21 @@
 % \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
 % \setmainfont{Oxygen-Sans}
 % \setmonofont{Oxygen Mono}
+% Windows: \setmainfont{Arial}
 
 %% Use glossary
 \usepackage{glossaries}
 \makenoidxglossaries
 \newacronym{dhbw}{DHBW}{Duale Hochschule Baden-Württemberg}
 
+%% Code listings
+\usepackage{listings}
+\lstloadlanguages{csh}
+
+%% Appendix
+\usepackage[toc,title]{appendix}
+
 \begin{document}
-
-%% Redefine Section
-\let\stdsection\section
-%\renewcommand\section[]{\centering{\stdsection* te}}
-\renewcommand{\section}[1]{\begin{center}\stdsection*{#1}\end{center}}
-
-%% Redefine Subsection
-\let\stdsubsection\subsection
-\renewcommand\subsection{\stdsubsection*}
 
 \begin{center}
 	\textbf{\Large{Titel}}\\
@@ -69,24 +73,46 @@
 
 \begin{multicols}{2}
 
+\cite{beispiel}
 \small
 \input{abstract.tex}
 \normalsize
-
+\tableofcontents
 \input{content.tex}
 
+
+\end{multicols}
+\subsection{Ein Bild au{\ss}erhalb der Spalten}
+\par\medskip\noindent\minipage{\linewidth}
+\centering
+\begin{minipage}[b]{\textwidth}
+    \centering
+    \includegraphics[height=2.5cm, fbox]{image3.png}
+    \captionof{figure}{Ein Bild}
+    \label{fig:someimage}
+\end{minipage}
+\endminipage\par\medskip
+
+
+\begin{multicols}{2}
+Und hier beginnt wieder irgendein Text, der in zwei spalten steht.
 \section{Literatur}
 \bibliographystyle{plain}
 \bibliography{ref}
 
 \end{multicols}
-%\tableofcontents
-%\printnoidxglossaries
 
-%\newpage
-%\listoffigures
+\clearpage
 
-%\bibliographystyle{plain}
-%\bibliography{ref}
+
+\def\appendixname{Anhang}
+\def\appendixpagename{Appendix}
+
+\begin{appendices}
+    \appendixpage
+    \section{Irgendein Code}
+    \subsection{\texttt{some\_code.sh}}
+    \lstinputlisting[language=bash]{some_code.sh}
+\end{appendices}
 
 \end{document}

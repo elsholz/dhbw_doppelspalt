@@ -57,4 +57,37 @@ Für die Formatierung ist die Reference-Formatvorlage zu verwenden. Alle Referen
 
 Zietieren der Beispielquelle: \cite{beispiel}
 
+\section{Bilder}
+Hier gehts im Bilder.
+\subsection{Ein Bild in einer Spalte}
+Hier soll ein Bild innerhalb einer Spalte hin.
+
+\par\medskip\noindent\minipage{\linewidth}
+\centering
+\begin{minipage}[b]{\textwidth}
+    \centering
+    \includegraphics[height=0.8cm, fbox]{image3.png}
+    \captionof{figure}{Ein Bild}
+    \label{fig:someimage}
+\end{minipage}
+\endminipage\par\medskip
+
+\subsection{Zwei Bilder in einer Spalte}
+Hier sollen zwei Bilder nebeneinander hin.
+\par\medskip\noindent\minipage{\linewidth}
+    \centering
+    \begin{minipage}[b]{0.4\textwidth}
+        \includegraphics[height=11cm, fbox]{image2.png}
+        \captionof{figure}{Das linke Bild}
+        \label{fig:someotherimage}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.4\textwidth}
+        \includegraphics[height=11cm, fbox]{image1.png}
+        \captionof{figure}{Das rechte Bild}
+        \label{fig:yetanotherimage}
+    \end{minipage}
+\endminipage\par\medskip
+
+
 
